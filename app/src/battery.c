@@ -60,8 +60,8 @@ static int zmk_battery_update(const struct device *battery) {
             return rc;
         }
 
-        rc = ZMK_EVENT_RAISE(new_zmk_battery_state_changed(
-            (struct zmk_battery_state_changed){.state_of_charge = last_state_of_charge}));
+        rc = raise_new_zmk_battery_state_changed(
+            (struct zmk_battery_state_changed){.state_of_charge = last_state_of_charge});
     }
 
     return rc;

@@ -50,8 +50,8 @@ static int start_advertising() {
 static void connected(struct bt_conn *conn, uint8_t err) {
     is_connected = (err == 0);
 
-    ZMK_EVENT_RAISE(new_zmk_split_peripheral_status_changed(
-        (struct zmk_split_peripheral_status_changed){.connected = is_connected}));
+    raise_new_zmk_split_peripheral_status_changed(
+        (struct zmk_split_peripheral_status_changed){.connected = is_connected});
 }
 
 static void disconnected(struct bt_conn *conn, uint8_t reason) {
@@ -63,8 +63,8 @@ static void disconnected(struct bt_conn *conn, uint8_t reason) {
 
     is_connected = false;
 
-    ZMK_EVENT_RAISE(new_zmk_split_peripheral_status_changed(
-        (struct zmk_split_peripheral_status_changed){.connected = is_connected}));
+    raise_new_zmk_split_peripheral_status_changed(
+        (struct zmk_split_peripheral_status_changed){.connected = is_connected});
 }
 
 static void security_changed(struct bt_conn *conn, bt_security_t level, enum bt_security_err err) {

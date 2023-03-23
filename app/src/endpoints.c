@@ -243,8 +243,8 @@ static void update_current_endpoint() {
         current_endpoint = new_endpoint;
         LOG_INF("Endpoint changed: %d", current_endpoint);
 
-        ZMK_EVENT_RAISE(new_zmk_endpoint_selection_changed(
-            (struct zmk_endpoint_selection_changed){.endpoint = current_endpoint}));
+        raise_new_zmk_endpoint_selection_changed(
+            (struct zmk_endpoint_selection_changed){.endpoint = current_endpoint});
     }
 }
 

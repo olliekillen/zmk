@@ -97,7 +97,8 @@ static inline int set_layer_state(uint8_t layer, bool state) {
     // Don't send state changes unless there was an actual change
     if (old_state != _zmk_keymap_layer_state) {
         LOG_DBG("layer_changed: layer %d state %d", layer, state);
-        ZMK_EVENT_RAISE(create_layer_state_changed(layer, state));
+        struct zmk_layer_state_changed_event ev = create_layer_state_changed(layer, state);
+        ZMK_EVENT_RAISE(ev);
     }
 
     return 0;

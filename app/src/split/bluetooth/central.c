@@ -58,7 +58,7 @@ void peripheral_event_work_callback(struct k_work *work) {
     struct zmk_position_state_changed ev;
     while (k_msgq_get(&peripheral_event_msgq, &ev, K_NO_WAIT) == 0) {
         LOG_DBG("Trigger key position state change for %d", ev.position);
-        ZMK_EVENT_RAISE(new_zmk_position_state_changed(ev));
+        raise_new_zmk_position_state_changed(ev);
     }
 }
 

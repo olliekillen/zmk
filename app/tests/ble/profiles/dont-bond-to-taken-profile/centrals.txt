@@ -1,0 +1,2 @@
+-d=2 -halt_after_bonding
+-d=3 -wait_on_start=1300

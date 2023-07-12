@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/bin/bash
 
-# Copyright (c) 2020 The ZMK Contributors
+# Copyright (c) 2023 The ZMK Contributors
 # SPDX-License-Identifier: MIT
 
 if [ -z "$1" ]; then
